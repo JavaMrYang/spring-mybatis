@@ -1,0 +1,14 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springboot-mybatis?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+server:
+  port: 8787 #设置端口号
+  servlet:
+    path: /spring-mybatis  #设置tomact访问路径
+  tomcat:
+    uri-encoding: UTF-8 #设置编码
