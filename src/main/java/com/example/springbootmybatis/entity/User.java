@@ -2,12 +2,33 @@ package com.example.springbootmybatis.entity;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable {
+    /**
+     * 主键id
+     */
     private Integer id;
+    /**
+    *用户名称
+     */
     private String name;
+    /**
+     *用户年龄
+     */
     private Integer age;
+    /**
+     *用户性别
+     */
     private Integer sex;
+    /**
+     *用户创建时间
+     */
+    private Date create_time;
+    /**
+     *用户被更新的最后时间
+     */
+    private Date updated_time;
 
     public Integer getId() {
         return id;
@@ -41,6 +62,23 @@ public class User implements Serializable {
     public void setSex(Integer sex) {
         this.sex = sex;
     }
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
+    }
+
+    public Date getUpdated_time() {
+        return updated_time;
+    }
+
+    public void setUpdated_time(Date updated_time) {
+        this.updated_time = updated_time;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -48,6 +86,8 @@ public class User implements Serializable {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", sex=" + sex +
+                ", create_time=" + create_time +
+                ", updated_time=" + updated_time +
                 '}';
     }
 }

@@ -16,7 +16,7 @@ public class UserMapperTest {
 
     @Test
     public void insertTest(){
-        userMapper.insertUser("张三",12,1);
+        //userMapper.insertUser("张三",12,1);
         User user=userMapper.findUserByName("张三");
         if(user!=null)System.out.println(user);
     }

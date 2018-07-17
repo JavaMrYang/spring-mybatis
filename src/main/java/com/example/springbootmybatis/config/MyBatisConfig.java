@@ -1,10 +1,11 @@
-package com.example.springbootmybatis.common;
+package com.example.springbootmybatis.config;
 
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,6 +25,21 @@ public class MyBatisConfig implements TransactionManagementConfigurer {
     @Autowired
     DataSource dataSource;
 
+    @Bean
+    public ConfigurationCustomizer configurationCustomizer() {
+        return new ConfigurationCustomizer() {
+
+            @Override
+            public void customize(org.apache.ibatis.session.Configuration configuration) {
+                configuration.setMapUnderscoreToCamelCase(true);//设置驼峰命名规则
+            }
+        };
+    }
+
+    /**
+     * 配置mybatis会话工厂
+     * @return
+     */
     @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactoryBean() {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
